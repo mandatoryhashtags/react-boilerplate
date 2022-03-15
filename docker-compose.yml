@@ -1,0 +1,14 @@
+version: "3.0"
+
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:8000"
+      # Make sure you set package.json to use gatsby develop -H 0.0.0.0
+    volumes:
+      - ./src:/app/src:ro
+    env_file:
+      - ./.env
